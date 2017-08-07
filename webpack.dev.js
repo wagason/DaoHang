@@ -6,7 +6,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   entry: {
     common: ['jquery','jquery.cookie','underscore'],
-    index: './src/index.js'
+    index: './src/views/index/main.js',
+    chennal: './src/views/chennal/main.js'
   },
   module: {
     rules: [
@@ -29,6 +30,14 @@ module.exports = {
           fallback: "style-loader",
           use: "css-loader"
         })
+      },
+      {
+        test: /\.ejs$/,
+        use: [
+          {
+            loader: 'ejs-loader'
+          }
+        ]
       }
     ]
   },
@@ -40,8 +49,14 @@ module.exports = {
     new ExtractTextPlugin("styles.css"),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: 'src/index.ejs',
-      inject: 'body'
+      filename: 'index.html',
+      template: 'src/views/index/render.js',
+      chunks: ['common','index']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'chennal.html',
+      template: 'src/views/chennal/render.js',
+      chunks: ['common','chennal']
     }),
     new webpack.ProvidePlugin({
       '_': 'underscore',
