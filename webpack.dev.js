@@ -5,9 +5,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   entry: {
-    common: ['jquery','jquery.cookie','underscore'],
     index: './src/views/index/main.js',
-    chennal: './src/views/chennal/main.js'
+    chennal: './src/views/chennal/main.js',
+    common: ['jquery','jquery.cookie','underscore']
   },
   module: {
     rules: [
@@ -46,8 +46,6 @@ module.exports = {
     contentBase: 'dist'
   },
   plugins: [
-    new ExtractTextPlugin("styles.css"),
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/views/index/render.js',
@@ -58,6 +56,13 @@ module.exports = {
       template: 'src/views/chennal/render.js',
       chunks: ['common','chennal']
     }),
+    // 将所有css文件打包成单独文件引入
+    new ExtractTextPlugin("styles.css"),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      minChunks: Infinity,
+    }),
+    // 生成公共库的全局变量
     new webpack.ProvidePlugin({
       '_': 'underscore',
       $: 'jquery',
@@ -65,10 +70,7 @@ module.exports = {
       'window.jQuery': 'jquery',
       'window.$': 'jquery'
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      minChunks: Infinity,
-    })
+    new CleanWebpackPlugin(['dist'])
   ],
   output: {
     filename: '[name].js',
