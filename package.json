@@ -22,9 +22,15 @@
     "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.2.1",
     "jquery.cookie": "^1.4.1",
+    "lazysizes": "^4.0.0-rc3",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "style-loader": "^0.18.2",
     "underscore": "^1.8.3",
     "unslider": "^2.0.3",
     "webpack": "^3.4.1"
+  },
+  "dependencies": {
+    "vanilla-lazyload": "^8.0.3"
   }
 }
