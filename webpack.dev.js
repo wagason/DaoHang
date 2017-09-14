@@ -29,7 +29,7 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.html'
+      template: 'src/sogou.html'
     }),
     // 将所有css文件打包成单独文件引入
     new ExtractTextPlugin("styles.css"),
