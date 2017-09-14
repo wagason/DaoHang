@@ -1,0 +1,101 @@
+.unslider-wrap {
+    position: relative
+}
+
+.unslider-wrap.unslider-carousel>li {
+    float: left
+}
+
+.unslider-vertical>ul {
+    height: 100%
+}
+
+.unslider-vertical li {
+    float: none;
+    width: 100%
+}
+
+.unslider-fade {
+    position: relative
+}
+
+.unslider-fade .unslider-wrap li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 8
+}
+
+.unslider-fade .unslider-wrap li.unslider-active {
+    z-index: 10
+}
+
+
+.unslider-arrow {
+    z-index: 2;
+    cursor: pointer
+}
+
+
+
+.unslider {
+    position: relative;
+    margin: 0 auto;
+    width: 248px;
+    .unslider-wrap {
+        li {
+            position: relative;
+            a {
+                display: block;                    
+                width: 100%;
+                height: 120px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }            
+                span {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    color: #fff;
+                }
+                i {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 20px;
+                    background-color: #000;
+                    opacity: 0.5;
+                    filter: Alpha(opacity=50);
+                }
+            }
+        }
+    }
+    .unslider-arrow {
+        position: absolute;
+        top: 50%;
+        margin-top: -14px;
+        width: 18px;
+        height: 27px;
+        font-size: 0;
+        line-height: 0;
+        background-image: url(//upd14.sogoucdn.com/nstatic/img/ico-1.png);
+        &.prev {
+            left: 0;
+            background-position: 0 -308px;
+        }
+        &.next {
+            right: 0;
+            background-position: 0 -344px;
+        }
+    }
+    .unslider-nav {
+        position: absolute;
+    }
+}
