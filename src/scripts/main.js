@@ -10,7 +10,7 @@ $('.unslider-container').unslider({
     autoplay: true
 });
 
-$(".m-3 .row").tab({
+$(".js-tabwraper").tab({
     t_selector: "ol li",
     c_selector: ".tab-item",
     events: "mouseover",
